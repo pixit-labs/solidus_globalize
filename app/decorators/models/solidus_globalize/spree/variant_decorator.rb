@@ -18,6 +18,8 @@ module SolidusGlobalize
           set_translation_association :translations_option_values
         end
       end
+
+      ::Spree::Variant.prepend self
     end
   end
 end
