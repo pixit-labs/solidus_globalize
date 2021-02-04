@@ -32,6 +32,14 @@ module SolidusGlobalize
       def spree_base_scopes
         super.includes(:translations).references(:translations)
       end
+
+      def set_translation_association(association=:translations)
+        if self.reflect_on_association(association)
+          self.accepts_nested_attributes_for association
+          self.whitelisted_ransackable_associations ||= []
+          self.whitelisted_ransackable_associations |= [association.to_s]
+        end
+      end
     end
   end
 end
