@@ -1,13 +1,9 @@
-# frozen_string_literal: true
-
 module SolidusGlobalize
   module Translatable
     extend ActiveSupport::Concern
 
     included do |klass|
-      accepts_nested_attributes_for :translations
-      klass.whitelisted_ransackable_associations ||= []
-      klass.whitelisted_ransackable_associations |= ['translations']
+      set_translation_association
     end
 
     class_methods do
@@ -40,6 +36,7 @@ module SolidusGlobalize
           self.whitelisted_ransackable_associations |= [association.to_s]
         end
       end
+
     end
   end
 end
