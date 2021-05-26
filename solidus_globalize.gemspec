@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     s.metadata["source_code_uri"] = 'https://github.com/solidusio-contrib/solidus_globalize'
   end
 
-  s.required_ruby_version = '~> 2.4'
+  s.required_ruby_version = '>= 2.5'
 
   s.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'deface', '~> 1.5'
   s.add_dependency 'friendly_id-globalize'
   s.add_dependency 'globalize', '~> 6.0'
-  s.add_dependency 'solidus_core', ['>= 2.0.0', '< 3']
+  s.add_dependency 'solidus_core', '>= 2.0.0', '< 4'
   s.add_dependency 'solidus_support', '~> 0.5'
 
   s.add_development_dependency 'byebug'
